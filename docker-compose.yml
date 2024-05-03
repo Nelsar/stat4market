@@ -1,0 +1,17 @@
+version: '3.3'
+services:
+  app:
+    build: ./
+    restart: always
+    container_name: stat4market.com_backend
+    ports:
+      - 8090:8090
+    volumes:
+      - $PWD/config.json:/app/config.json
+
+  clickhouse-server:
+    image: clickhouse/clickhouse-server
+    ports:
+      - 8443:8443
+    volumes:
+      - ./db:/var/lib/clickhouse
