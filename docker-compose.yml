@@ -11,7 +11,8 @@ services:
 
   clickhouse-server:
     image: clickhouse/clickhouse-server
+    container_name: clickhouse-server
     ports:
       - 8443:8443
     volumes:
-      - ./db:/var/lib/clickhouse
+      - ./:/var/lib/clickhouse
